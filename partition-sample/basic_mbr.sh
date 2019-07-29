@@ -12,7 +12,9 @@ echo w # Write changes
 
 read -p "Do you want to mount the partitions ? [Y/n] " ANSWER
 
-if [[ ANSWER =~ ^"Yy"$ ]];then
+if [[ ANSWER =~ ^[Yy]$ ]];then
+    echo "Mounting partition..."
     umount -R /mnt
     mount /dev/sda1 /mnt
+    echo "Partition mounted."
 fi
