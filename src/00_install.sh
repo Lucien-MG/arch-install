@@ -2,7 +2,7 @@
 
 read -p "Proceed to install ? [Y/n] " M_INSTALL_ANSWER
 
-if [[ M_INSTALL_ANSWER =~ ^{Yy}$ ]]; then
+if [[ $M_INSTALL_ANSWER =~ ^[Yy]$ ]]; then
 
     source 01_setup_install.sh
 
