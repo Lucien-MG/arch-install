@@ -16,9 +16,9 @@ FONT_P="ttf-bitstream-vera ttf-liberation gnu-free-fonts ttf-dejavu"
 VIRTUALBOX_P="xf86-video-vesa virtualbox-guest-utils"
 
 gnome="gnome gdm gdm3setup"
-cinnamon="cinnamon lightdm-gtk-greeter-settings"
-xfce="xfce4 lightdm-gtk-greeter-settings"
-mate="mate lightdm-gtk-greeter-settings"
+cinnamon="cinnamon lightdm-gtk-greeter lightdm-gtk-greeter-settings"
+xfce="xfce4 lightdm-gtk-greeter lightdm-gtk-greeter-settings"
+mate="mate lightdm-gtk-greeter lightdm-gtk-greeter-settings"
 
 gnome_setup="gdm.service"
 cinnamon_setup="lightdm.service"

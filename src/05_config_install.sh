@@ -1,4 +1,12 @@
-#!/bin/bash
+#!/bin/bash -                                                                   
+#title          :05_config_install.sh                                             
+#author         :Lucien Martin Gaffé                                            
+#date           :29/07/2019                                                     
+#version        :0.1.0                                                          
+#usage          :                                                               
+#notes          :                                                               
+#bash_version   :4.0+                                                           
+#=========================================================================== 
 
 SCRIPT_PATH=$(pwd)
 

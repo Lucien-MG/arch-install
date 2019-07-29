@@ -22,7 +22,7 @@ if [[ $M_INSTALL_ANSWER =~ ^[Yy]$ ]]; then
 
     echo "Remove the installation media."
 
-    read -p "Installation finished, do you want to reboot ? [Y/n]" M_REBOOT
+    read -p "Installation finished, do you want to reboot ? [Y/n] " M_REBOOT
 
     if [[ $M_REBOOT =~ ^[Yy]$ ]]; then
         reboot
