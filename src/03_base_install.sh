@@ -1,10 +1,19 @@
-#!/bin/bash
+#!/bin/bash -
+#title          :
+#author         :Lucien Martin Gaffé
+#date           :
+#version        :
+#usage          :
+#notes          :
+#bash_version   :
+#===========================================================================
 
 # Minimal Installation
 # Install arch base
 # Add ntfs-3g and os-prober to detect windows in dual-boot case
+# Add laptop-detect to know if tlp is necessary
 # Add bash completion 
-BASE_PACKAGES="base base-devel pacman-contrib bash-completion"
+BASE_PACKAGES="base base-devel pacman-contrib bash-completion laptop-detect"
 GRUB_PACKAGES="grub efibootmgr os-prober ntfs-3g"
 
 read -p "Do you want to install arch linux base ? [Y/n]: " ANSWER
