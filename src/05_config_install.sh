@@ -55,19 +55,6 @@ echo "Generating initramfs..."
 
 mkinitcpio -p linux
 
-echo "Grub install"
-
-if [ -d "/sys/firmware/efi/efivars" ]; then
-    echo "Install grub in uefi mode..."
-    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck
-
-    mkdir /boot/efi/EFI/boot
-    cp /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
-else
-    echo "Install grub in bios mode..."
-    grub-install --no-floppy --recheck /dev/sda
-fi    
-
 echo "Grub configuration"
 
 os-prober

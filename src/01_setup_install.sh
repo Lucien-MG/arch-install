@@ -1,17 +1,14 @@
 #!/bin/bash -
-#title          :
+#title          :01_setup_install.sh
 #author         :Lucien Martin Gaffé
-#date           :
-#version        :
+#date           :29/07/2019
+#version        :0.1.0
 #usage          :
 #notes          :
-#bash_version   :
+#bash_version   :4.0+
 #===========================================================================
 
-# BEGIN
-
-echo ""
-echo "#### Setup Archlinux install script ####"
+echo "#### Archlinux install: script 1, setup ####"
 
 # Load keyboard
 echo "Available Keyboard:"
@@ -26,7 +23,7 @@ loadkeys $KEYBOARD
 if [ $? -eq 0 ]; then
     echo "Keyboard setup."
 else
-    echo "Keyboard setup fail."
+    echo "Keyboard setup fail. Choose an existant keyboard."
 fi
 
 # Check if the machine is in EFI or CSM mode
@@ -49,11 +46,11 @@ if ping -q -c 1 -W 5 google.com >/dev/null; then
 else
     echo "The network is down."
     read -p "Do you want to connect to internet through wi-fi ? [Y/n] " DIALOG_ANSWER
+
     if [[ $DIALOG_ANSWER =~ ^[Yy]$ ]]; then
         wifi-menu
     else
-        echo "Impossible to perform the installation without internet."
-        echo "EXIT"
+        echo "Impossible to perform the installation without internet. EXIT."
         exit
     fi
 fi
@@ -61,11 +58,7 @@ fi
 # Update the system clock 
 timedatectl set-ntp true
 
+# Check the system clock
 timedatectl status
 
-echo "Time for you to partition your disk."
-
-echo "#### End setup Archlinux script ####"
-echo ""
-
-# END
+echo "#### script 1 terminated ####"
