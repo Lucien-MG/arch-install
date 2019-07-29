@@ -17,4 +17,19 @@ to do a correct and complete install. Read the scripts, there is a lot of
 usefull commentaries and don't hesitate to read the offical arch linux wiki:
 https://wiki.archlinux.org/index.php/installation_guide
 
+## How to get it ?
+After booting on the usb live arch linux do:
+
+'wget https://github.com/Lucien-MG/arch-install/archive/master.zip'
+
+to get the scripts.
+
+then do:
+
+'bsdtar -xf master.zip'
+
+You now have the scripts on your machine!
+
+## How to use it /
+
 

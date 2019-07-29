@@ -12,20 +12,22 @@ fi
 XORG_P="xorg-server xorg-xinit xorg-apps xorg-twm xterm xorg-xclock"
 INPUT_P="xf86-input-mouse xf86-input-keyboard"
 USER_P="xdg-user-dirs"
-FONT_P="ttf-bitstream-vera ttf-liberation ttf-freefont ttf-dejavu freetype2"
+FONT_P="ttf-bitstream-vera ttf-liberation gnu-free-fonts ttf-dejavu"
 VIRTUALBOX_P="xf86-video-vesa virtualbox-guest-utils"
 
 gnome="gnome gdm gdm3setup"
 cinnamon="cinnamon lightdm-gtk-greeter-settings"
 xfce="xfce4 lightdm-gtk-greeter-settings"
+mate="mate lightdm-gtk-greeter-settings"
 
 gnome_setup="gdm.service"
 cinnamon_setup="lightdm.service"
 xfce_setup="lightdm.service"
+mate_setup="lightdm.service"
 
-DESK_ENVS_NAME=('gnome' 'cinnamon' 'xfce')
-DESK_ENVS=(${gnome} ${cinnamon} ${xfce})
-DESK_SETUPS=(${gnome_setup} ${cinnamon_setup} ${xfce_setup})
+DESK_ENVS_NAME=('gnome' 'cinnamon' 'xfce' 'mate')
+DESK_ENVS=(${gnome} ${cinnamon} ${xfce} ${mate})
+DESK_SETUPS=(${gnome_setup} ${cinnamon_setup} ${xfce_setup} ${mate_setup})
 
 read -p "Do you want a graphical interface ? [Y/n] " ANSWER
 
@@ -44,6 +46,8 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
     systemctl enable vboxservice
 fi
 
+# NEED GRPHICAL DRIVER !!!
+
 COUNT=0
 
 for DESK_ENV in ${DESK_ENVS_NAME[@]}
@@ -55,12 +59,12 @@ done
 read -p "Choose your desktop environment: " NB_DESK
 
 # Install the environment
-DESKi_ENV=${DESK_ENVS[$NB_DESK]}
-pacman -Syu $DESK_ENV
+DESK_ENV_SELECTED=${DESK_ENVS[$NB_DESK]}
+pacman -Syu $DESK_ENV_SELECTED
 
 # Enable display manager
-DESK_SETUP=${DESK_SETUPS[$NB_DESK]}
-systemctl enable $DESK_SETUP
+DESK_SETUP_SELECTED=${DESK_SETUPS[$NB_DESK]}
+systemctl enable $DESK_SETUP_SELECTED
 
 # Set fr keyboard for x11
 localectl set-x11-keymap fr

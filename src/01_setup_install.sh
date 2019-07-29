@@ -48,7 +48,7 @@ if ping -q -c 1 -W 3 google.com >/dev/null; then
     echo "The network is up."
 else
     echo "The network is down."
-    read -p "Do you want to connect to internet through wi-fi ? [Y/n]: " DIALOG_ANSWER
+    read -p "Do you want to connect to internet through wi-fi ? [Y/n] " DIALOG_ANSWER
     if [[ $DIALOG_ANSWER =~ ^[Yy]$ ]]; then
         wifi-menu
     else

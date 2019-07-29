@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_PATH=$(pwd)
+
 if [ -f "./03_base_install.sh" ]; then
     echo "arch-chroot"
     cp $SCRIPT_PATH/$0 /mnt/

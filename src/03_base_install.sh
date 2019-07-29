@@ -13,7 +13,7 @@
 # Add ntfs-3g and os-prober to detect windows in dual-boot case
 # Add laptop-detect to know if tlp is necessary
 # Add bash completion 
-BASE_PACKAGES="base base-devel pacman-contrib bash-completion laptop-detect"
+BASE_PACKAGES="base base-devel pacman-contrib bash-completion"
 GRUB_PACKAGES="grub efibootmgr os-prober ntfs-3g"
 
 read -p "Do you want to install arch linux base ? [Y/n]: " ANSWER

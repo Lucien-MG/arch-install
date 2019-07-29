@@ -10,7 +10,8 @@ if [ -f "./03_base_install.sh" ]; then
 fi
 
 NETWORK_P="networkmanager"
-SYSTEM_P="udev acpid lsb-release exfat-utils dosfstools cups"
+SYSTEM_P="udev acpid lsb-release exfat-utils dosfstools cups laptop-detect"
+LAPTOP_P="tlp"
 SYSTEMADMIN_P="syslog-ng mc mtools git"
 COMPTOOLS_P="zip unzip p7zip"
 SOUND_P="alsa-utils"
@@ -32,6 +33,13 @@ read -p "Install system utils ? [Y/n]: " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
     pacman -Syu $SYSTEM_P
+
+    laptop-detect
+
+    if [[ $? -eq 0 ]]; then
+        echo "Laptop detected."
+        pacman -Syu $LAPTOP_P
+    fi
 fi
 
 read -p "Install system admin utils ? [Y/n]: " ANSWER
