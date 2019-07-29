@@ -44,7 +44,7 @@ echo "Checking network..."
 # ping -> -c nb = the number of request to send
 #      -> -q = quiet output
 #      -> -W nb = time to wait for a response
-if ping -q -c 1 -W 3 google.com >/dev/null; then
+if ping -q -c 1 -W 5 google.com >/dev/null; then
     echo "The network is up."
 else
     echo "The network is down."
