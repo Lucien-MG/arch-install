@@ -26,8 +26,8 @@ xfce_setup="lightdm.service"
 mate_setup="lightdm.service"
 
 DESK_ENVS_NAME=('gnome' 'cinnamon' 'xfce' 'mate')
-DESK_ENVS=(${gnome} ${cinnamon} ${xfce} ${mate})
-DESK_SETUPS=(${gnome_setup} ${cinnamon_setup} ${xfce_setup} ${mate_setup})
+DESK_ENVS=("${gnome}" "${cinnamon}" "${xfce}" "${mate}")
+DESK_SETUPS=("${gnome_setup}" "${cinnamon_setup}" "${xfce_setup}" "${mate_setup}")
 
 read -p "Do you want a graphical interface ? [Y/n] " ANSWER
 

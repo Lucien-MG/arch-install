@@ -96,8 +96,9 @@ passwd
 
 read -p "Activiate sudo group (wheel) ? [Y/n] " SUDO_ACTIV
 
-if [[ SUDO_ACTIV =~ ^[Yy]$ ]];then
+if [[ $SUDO_ACTIV =~ ^[Yy]$ ]];then
     sed -i "s/#  %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g" /etc/sudoers
+    echo "Sudo activated."
 fi
 
 echo "### End configuration Arch linx install script ###"

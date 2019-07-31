@@ -13,6 +13,7 @@ fi
 read -p "Do you want to create a new user ? [Y/n]: " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
+    echo "#Add quote if your name contain a space#"
     read -p "Full name: " FULL_NAME
     read -p "User name: " USER_NAME
     read -p "Give to this user sudo right ? [Y/n]: " ANSWER_S
@@ -23,9 +24,9 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
     ANSWER_SHELL="$(tr [A-Z] [a-z] <<< "$ANSWER_SHELL")"
 
     if [[ $ANSWER =~ ^[Yy]$ ]]; then
-        useradd -m -g wheel -c \'$FULL_NAME\' -s /bin/$ANSWER_SHELL $USER_NAME
+        useradd -m -g wheel -c $FULL_NAME -s /bin/$ANSWER_SHELL $USER_NAME
     else
-        useradd -m -c \'$FULL_NAME\' -s /bin/$ANSWER_SHELL $USER_NAME
+        useradd -m -c $FULL_NAME -s /bin/$ANSWER_SHELL $USER_NAME
     fi
 
     echo "Give a password to ${USER_NAME}"
