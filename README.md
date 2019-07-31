@@ -31,7 +31,7 @@ You now have the scripts on your machine!
 ## How to use it ?
 
 run the integral installation:
-`./arch_install/src/00_install.sh`
+`./arch_install/arch_install.sh`
 
 This will run all the install scrpits in the order.
 

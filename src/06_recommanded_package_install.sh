@@ -9,6 +9,8 @@ if [ -f "./03_base_install.sh" ]; then
     exit                                                                        
 fi
 
+echo "#### Arch linux install: script 6, package install ####"
+
 NETWORK_P="networkmanager"
 SYSTEM_P="udev acpid lsb-release exfat-utils dosfstools cups laptop-detect"
 LAPTOP_P="tlp"
@@ -85,3 +87,5 @@ read -p "Install zsh ? [Y/n]: " ANSWER
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
     pacman -Syu $ZSH_P 
 fi
+
+echo "#### script 06 terminated ####"

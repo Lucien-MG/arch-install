@@ -9,6 +9,8 @@ if [ -f "./03_base_install.sh" ]; then
     exit                                                                        
 fi   
 
+echo "#### Arch linux install: script 7, graphical install ####"
+
 XORG_P="xorg-server xorg-xinit xorg-apps xorg-twm xterm xorg-xclock"
 INPUT_P="xf86-input-mouse xf86-input-keyboard"
 USER_P="xdg-user-dirs"

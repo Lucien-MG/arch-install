@@ -10,7 +10,7 @@
 
 SCRIPT_PATH=$(pwd)
 
-echo "### Begin configuration Archlinux install script ###"
+echo "#### Arch linux install: script 5, config install ####"
 
 if [ -f "./03_base_install.sh" ]; then
     echo "arch-chroot"
@@ -101,7 +101,7 @@ if [[ $SUDO_ACTIV =~ ^[Yy]$ ]];then
     echo "Sudo activated."
 fi
 
-echo "### End configuration Arch linx install script ###"
+echo "#### script 5 terminated ####"
 
 SCRIPT_PATH=$(pwd)
 echo $SCRIPT_PATH
