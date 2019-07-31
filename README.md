@@ -18,18 +18,24 @@ usefull commentaries and don't hesitate to read the offical arch linux wiki:
 https://wiki.archlinux.org/index.php/installation_guide
 
 ## How to get it ?
-After booting on the usb live arch linux do:
+After booting on the usb live arch linux follow these steps:
 
-'wget https://github.com/Lucien-MG/arch-install/archive/master.zip'
+download the scripts:
+`wget https://github.com/Lucien-MG/arch-install/archive/master.zip`
 
-to get the scripts.
-
-then do:
-
-'bsdtar -xf master.zip'
+unzip it:
+`bsdtar -xf master.zip`
 
 You now have the scripts on your machine!
 
-## How to use it /
+## How to use it ?
+
+run the integral installation:
+`./arch_install/src/00_install.sh`
+
+this will run all the install scrpits in the order.
+
+If you want to use only a part of these script you can run it in an 
+independant way.
 
 
