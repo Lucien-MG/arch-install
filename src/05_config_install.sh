@@ -94,6 +94,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 echo "Give a root password:"
 passwd
 
+read -p "Activiate sudo group (wheel) ? [Y/n] " SUDO_ACTIV
+
+if [[ SUDO_ACTIV =~ ^[Yy]$ ]];then
+    sed -i "s/#  %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g" /etc/sudoers
+fi
+
 echo "### End configuration Arch linx install script ###"
 
 SCRIPT_PATH=$(pwd)
