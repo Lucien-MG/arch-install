@@ -20,11 +20,11 @@ if [[ $M_INSTALL_ANSWER =~ ^[Yy]$ ]]; then
 
     /bin/bash 08_create_user_install.sh
 
-    echo "Remove the installation media."
 
     read -p "Installation finished, do you want to reboot ? [Y/n] " M_REBOOT
 
     if [[ $M_REBOOT =~ ^[Yy]$ ]]; then
+        echo "Remove the installation media."
         reboot
     fi
 fi 

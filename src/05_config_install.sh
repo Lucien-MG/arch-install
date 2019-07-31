@@ -19,6 +19,9 @@ if [ -f "./03_base_install.sh" ]; then
     exit
 fi
 
+LANG_ARRAY=("us" "fr")
+LANG_CODE_ARRAY=("en_US.UTF-8" "fr_FR.UTF-8")
+
 # The user indicate his time zone
 echo "Configuration of your time zone"
 
@@ -39,8 +42,26 @@ echo "Time zone setup."
 echo "Configuration of your localisation"
 echo "(Choose your language and keyboard)"
 
-echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+COUNT=0
+
+for L in ${LANG_ARRAY[@]}
+do
+    echo "$COUNT/ ${L}"
+    COUNT=$(($COUNT+1))
+done
+
+read -p "Choose your language: " NB_LANG
+
+LANG_CODE=${LANG_CODE_ARRAY[$NB_LANG]}
+
+echo "LANG=${LANG_CODE}" >> /etc/locale.conf
 echo "LC_COLLATE=C" >> /etc/locale.conf
+
+sed -i "s/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g" /etc/locale.gen
+
+if ! [ $COUNT -eq 0 ]; then
+    sed -i "s/#${LANG_CODE} UTF-8/${LANG_CODE} UTF-8/g" /etc/locale.gen
+fi
 
 echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
 echo "FONT=lat9w-16" >> /etc/vconsole.conf
@@ -58,6 +79,8 @@ read -p "Choose a host name for your machine: " HOSTNAME
 mkdir /etc/$HOSTNAME
 
 echo "127.0.0.1    localhost" >> /etc/hosts
+echo "::1          localhost" >> /etc/hosts
+echo "127.0.1.1    ${HOSTNAME}.localdomain ${HOSTNAME}" >> /etc/hosts
 
 echo "Generating initramfs..."
 
