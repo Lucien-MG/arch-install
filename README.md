@@ -1,7 +1,7 @@
 # arch-install
 A bunch of scripts that can install arch linux in a easy and fast way.
 
-Welcome to arch-install project. Before everithing, The goal of this project
+Welcome to arch-install project. Before everything, The goal of this project
 need to be clarified. Arch-install is made for those who already know how
 to install arch or for those who want to learn. Don't take these install script 
 to have an easy access to arch linux without understanding or without will to 
@@ -33,7 +33,7 @@ You now have the scripts on your machine!
 run the integral installation:
 `./arch_install/src/00_install.sh`
 
-this will run all the install scrpits in the order.
+This will run all the install scrpits in the order.
 
 If you want to use only a part of these script you can run it in an 
 independant way.

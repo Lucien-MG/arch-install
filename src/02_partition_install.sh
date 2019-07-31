@@ -10,10 +10,18 @@
 
 echo "#### Arch linux install: script 2, partition ####"
 
-ls ../partition-sample/
-    
+if [ -d "/sys/firmware/efi/efivars" ]; then 
+    echo "GPT partition: "
+    FOLDER_PART='gpt'
+else 
+    echo "MBR partition: "
+    FOLDER_PART='mbr'
+fi
+
+ls ../partition-sample/$FOLDER_PART/ 
+ 
 read -p "Which partitionning do you want ? " PARTITIONNING
-    
-/bin/bash ../partition-sample/$PARTITIONNING
+
+/bin/bash ../partition-sample/$FOLDER_PART/$PARTITIONNING
 
 echo "#### script 2 terminated ####"
