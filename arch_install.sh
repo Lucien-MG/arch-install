@@ -11,9 +11,16 @@ echo "##                                                                  ##"
 echo "######################################################################"
 echo "######################################################################"
 
-SCRIPT_PATH=$(find / -name 'arch-install.sh')
+SCRIPT_NAME="arch_install.sh"
+SCRIPT_LENGTH=$(expr length $SCRIPT_NAME)
 
-cd SCRIPT_PATH/src
+USER_PATH=$(pwd)
+RELATIVE_TO_USER=$0
+RELATIVE_TO_USER=${RELATIVE_TO_USER:1:-$SCRIPT_LENGTH}
+
+SCRIPT_PATH=$USER_PATH$RELATIVE_TO_USER
+
+cd $SCRIPT_PATH/src
 ./00_install.sh
 
 echo "######################################################################"
