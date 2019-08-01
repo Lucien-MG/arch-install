@@ -15,9 +15,7 @@ echo "Available Keyboard:"
 
 # /usr/share/kbd/locale contain all available keyboards
 ls /usr/share/kbd/locale
-cd /usr/share/kbd/locale # enable auto-completion
-read -e -p "Choose your keyboard layout: " KEYBOARD
-cd - # Go back to last location
+read -p "Choose your keyboard layout: " KEYBOARD
 
 # Command loadkeys allow to change the keyboard
 loadkeys $KEYBOARD
