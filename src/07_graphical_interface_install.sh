@@ -70,3 +70,5 @@ systemctl enable $DESK_SETUP_SELECTED
 
 # Set fr keyboard for x11
 localectl set-x11-keymap fr
+
+echo "#### script 7 terminated ####"
