@@ -57,7 +57,7 @@ if [[ $ANSWER =~ ^[Yy]$ ]];then
     echo "Partition formated."                                                  
 fi                                                                              
 
-read -p "Do you want to mount the partitions ? [Y/n] "ANSWER
+read -p "Do you want to mount the partitions ? [Y/n] " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]];then                                                 
    echo "Mounting partition..."                                                
