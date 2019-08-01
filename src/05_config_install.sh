@@ -50,7 +50,7 @@ do
     COUNT=$(($COUNT+1))
 done
 
-read -p "Choose your language: " NB_LANG
+read -p "Choose the number of your language: " NB_LANG
 
 LANG_CODE=${LANG_CODE_ARRAY[$NB_LANG]}
 
@@ -59,7 +59,7 @@ echo "LC_COLLATE=C" >> /etc/locale.conf
 
 sed -i "s/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g" /etc/locale.gen
 
-if ! [ $COUNT -eq 0 ]; then
+if ! [ $NB_LANG -eq 0 ]; then
     sed -i "s/#${LANG_CODE} UTF-8/${LANG_CODE} UTF-8/g" /etc/locale.gen
 fi
 
