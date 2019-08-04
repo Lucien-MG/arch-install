@@ -36,6 +36,8 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
 
     /bin/bash ../partition-sample/$FOLDER_PART/$PARTITIONNING
 else
+    echo "Partition as you like then format it and mount all partition on mnt."
+    echo "To finish and continue the installation type exit."
     /bin/bash
 fi
 
