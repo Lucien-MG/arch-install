@@ -12,12 +12,14 @@ fi
 echo "#### Arch linux install: script 6, package install ####"
 
 NETWORK_P="networkmanager"
-SYSTEM_P="udev acpid lsb-release exfat-utils dosfstools cups laptop-detect"
+SYSTEM_P="udev acpid hdparm lsb-release exfat-utils dosfstools cups laptop-detect"
+AMDU_P="amd-ucode"
+INTELU_P="intel-ucode"
 LAPTOP_P="tlp acpi_call tp_smapi x86_energy_perf_policy"
 SYSTEMADMIN_P="syslog-ng mc mtools dialog git"
 COMPTOOLS_P="zip unzip p7zip"
 SOUND_P="alsa-utils"
-FOOMATIC_P="foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds"
+FOOMATIC_P="cups foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds"
 FOOMATIC_P2="foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint"
 MULTIMEDIA_P="gst-plugins-base gst-plugins-good gst-plugins-bad gst-libav"
 MULTIMEDIA_P2="gst-plugins-ugly"
@@ -34,7 +36,23 @@ fi
 read -p "Install system utils ? [Y/n]: " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
+
+    PROC=$(cat /proc/cpuinfo | grep GenuineIntel)
+
+    if [[ $PROC -eq "" ]]; then
+        $SYSTEM_P=$SYSTEM_P$AMDU_P
+    else
+        $SYSTEM_P=$SYSTEM_P$INTELU_P
+    fi
+
     pacman -Syu $SYSTEM_P
+
+    read -p "Are you on an ssd ? " ANSWER
+
+    if [[ $ANSWER =~ ^[Yy]$ ]]; then
+        systemctl enable fstrim.service fstrim.timer
+        echo "Trim enabled weekly."
+    fi
 
     laptop-detect
 
@@ -43,7 +61,7 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
         pacman -Syu $LAPTOP_P
 
         systemctl enable tlp.service tlp-sleep.service
-        echo "Laptop packages installed"
+        echo "Laptop packages installed."
     fi
 fi
 

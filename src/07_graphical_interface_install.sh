@@ -14,6 +14,7 @@ echo "#### Arch linux install: script 7, graphical install ####"
 XORG_P="xorg-server xorg-xinit xorg-apps xorg-twm xterm xorg-xclock"
 INPUT_P="xf86-input-mouse xf86-input-keyboard"
 USER_P="xdg-user-dirs"
+OPENGL_P="mesa"
 FONT_P="ttf-bitstream-vera ttf-liberation gnu-free-fonts ttf-dejavu"
 VIRTUALBOX_P="xf86-video-vesa virtualbox-guest-utils"
 
@@ -34,7 +35,7 @@ DESK_SETUPS=("${gnome_setup}" "${cinnamon_setup}" "${xfce_setup}" "${mate_setup}
 read -p "Do you want a graphical interface ? [Y/n] " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
-    pacman -Syu $XORG_P $INPUT_P $USER_P $FONT_P
+    pacman -Syu $XORG_P $INPUT_P $USER_P $FONT_P $OPENGL_P
 else
     exit
 fi
@@ -69,6 +70,6 @@ DESK_SETUP_SELECTED=${DESK_SETUPS[$NB_DESK]}
 systemctl enable $DESK_SETUP_SELECTED
 
 # Set fr keyboard for x11
-localectl set-x11-keymap fr
+# localectl set-x11-keymap fr
 
 echo "#### script 7 terminated ####"
