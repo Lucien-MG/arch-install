@@ -14,9 +14,13 @@ echo "#### Arch linux install: script 7, graphical install ####"
 XORG_P="xorg-server xorg-xinit xorg-apps xorg-twm xterm xorg-xclock"
 INPUT_P="xf86-input-mouse xf86-input-keyboard"
 USER_P="xdg-user-dirs"
-OPENGL_P="mesa"
+OPENGL_P="mesa lib32-mesa"
 FONT_P="ttf-bitstream-vera ttf-liberation gnu-free-fonts ttf-dejavu"
 VIRTUALBOX_P="xf86-video-vesa virtualbox-guest-utils"
+
+INTEL_GRAPH_P="xf86-video-intel vulkan-intel"
+AMD_GRAPH_P="xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon"
+NVIDIA_GRAPH_P="nvidia"
 
 gnome="gnome gdm gdm3setup"
 cinnamon="cinnamon lightdm-gtk-greeter lightdm-gtk-greeter-settings"
@@ -40,8 +44,6 @@ else
     exit
 fi
 
-# NEED GRPHICAL DRIVER !!!
-
 read -p "Are you in a virtual machine ? [Y/n] " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
@@ -49,7 +51,23 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
     systemctl enable vboxservice
 fi
 
-# NEED GRPHICAL DRIVER !!!
+read -p "Install intel video driver ? [Y/n] " ANSWER
+
+if [[ $ANSWER =~ ^[Yy]$ ]]; then
+    pacman -Syu $INTEL_GRAPH_P
+fi
+
+read -p "Install amd video driver ? [Y/n] " ANSWER
+
+if [[ $ANSWER =~ ^[Yy]$ ]]; then
+    pacman -Syu $AMD_GRAPH_P
+fi
+
+read -p "Install nvidia video driver ? [Y/n] " ANSWER
+
+if [[ $ANSWER =~ ^[Yy]$ ]]; then
+    pacman -Syu $NVIDIA_GRAPH_P
+fi                               
 
 COUNT=0
 
