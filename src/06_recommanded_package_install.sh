@@ -13,7 +13,7 @@ echo "#### Arch linux install: script 6, package install ####"
 
 NETWORK_P="networkmanager"
 SYSTEM_P="udev acpid lsb-release exfat-utils dosfstools cups laptop-detect"
-LAPTOP_P="tlp"
+LAPTOP_P="tlp acpi_call tp_smapi x86_energy_perf_policy"
 SYSTEMADMIN_P="syslog-ng mc mtools dialog git"
 COMPTOOLS_P="zip unzip p7zip"
 SOUND_P="alsa-utils"
@@ -41,6 +41,9 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
     if [[ $? -eq 0 ]]; then
         echo "Laptop detected."
         pacman -Syu $LAPTOP_P
+
+        systemctl enable tlp.service tlp-sleep.service
+        echo "Laptop packages installed"
     fi
 fi
 
