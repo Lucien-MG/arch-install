@@ -18,7 +18,7 @@ echo "But, if you to partition by yourself just answer no to"
 echo "the next question and mount your partition on /mnt to"
 echo "continue to use the script."
 
-read -p "Do you want to use partition script ? " ANSWER
+read -p "Do you want to use partition script ? [Y/n]" ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
 
@@ -36,7 +36,7 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
 
     /bin/bash ../partition-sample/$FOLDER_PART/$PARTITIONNING
 else
-    exit
+    /bin/bash
 fi
 
 echo "#### script 2 terminated ####"
