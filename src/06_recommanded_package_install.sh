@@ -47,7 +47,7 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
 
     pacman -Syu $SYSTEM_P
 
-    read -p "Are you on an ssd ? " ANSWER
+    read -p "Are you on an ssd ? [Y/n]" ANSWER
 
     if [[ $ANSWER =~ ^[Yy]$ ]]; then
         systemctl enable fstrim.service fstrim.timer
