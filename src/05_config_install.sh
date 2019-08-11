@@ -76,7 +76,9 @@ echo "Traduction generated."
 echo "Network configuration"
 
 read -p "Choose a host name for your machine: " HOSTNAME
-mkdir /etc/$HOSTNAME
+touch /etc/hostname
+$HOSTNAME >> /etc/hostname
+echo "hostname saved."
 
 echo "127.0.0.1    localhost" >> /etc/hosts
 echo "::1          localhost" >> /etc/hosts
