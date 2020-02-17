@@ -1,6 +1,6 @@
 #!/bin/bash -
 #title          :03_base_install.sh
-#author         :Lucien Martin Gaffé
+#author         :Lucien Martin-Gaffé
 #date           :29/07/2019
 #version        :0.1.0
 #usage          :
@@ -11,8 +11,8 @@
 # Minimal Installation
 # Install arch base
 # Add ntfs-3g and os-prober to detect windows in dual-boot case
-# Add bash completion 
-BASE_PACKAGES="base base-devel pacman-contrib bash-completion"
+# Add bash completion
+BASE_PACKAGES="base base-devel linux linux-firmware pacman-contrib bash-completion"
 GRUB_PACKAGES="grub efibootmgr os-prober ntfs-3g"
 
 echo "#### Arch linux install: script 3, base install ####"
@@ -23,7 +23,7 @@ if [[ $ANSWER =~ ^[Yy]$ ]]; then
     pacstrap /mnt $BASE_PACKAGES $GRUB_PACKAGES
 else
     echo "Install stoped."
-    exit
+    exit 1
 fi
 
 if [ $? -eq 0 ]; then
@@ -31,7 +31,7 @@ if [ $? -eq 0 ]; then
 else
     echo "Installation failed."
     echo "Is the partition mount on /mnt ?"
-    exit
+    exit 1
 fi
 
 # Generate an fstab file.

@@ -2,12 +2,12 @@
 
 SCRIPT_PATH=$(pwd)
 
-if [ -f "./03_base_install.sh" ]; then                                          
-    echo "arch-chroot"                                                          
-    cp $SCRIPT_PATH/$0 /mnt/                                                    
-    arch-chroot /mnt ./$0                                                       
-    exit                                                                        
-fi   
+if [ -f "./03_base_install.sh" ]; then
+    echo "arch-chroot"
+    cp $SCRIPT_PATH/$0 /mnt/
+    arch-chroot /mnt ./$0
+    exit
+fi
 
 echo "#### Arch linux install: script 7, graphical install ####"
 
