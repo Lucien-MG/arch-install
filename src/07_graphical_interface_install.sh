@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 SCRIPT_PATH=$(pwd)
 
@@ -68,7 +67,7 @@ read -p "Install nvidia video driver ? [Y/n] " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
     pacman -Syu $NVIDIA_GRAPH_P
-fi
+fi                               
 
 COUNT=0
 

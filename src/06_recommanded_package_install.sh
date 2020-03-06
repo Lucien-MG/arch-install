@@ -1,13 +1,12 @@
 #!/bin/bash
-set -e
 
 SCRIPT_PATH=$(pwd)
 
-if [ -f "./03_base_install.sh" ]; then
-    echo "arch-chroot"
-    cp $SCRIPT_PATH/$0 /mnt/
-    arch-chroot /mnt ./$0
-    exit
+if [ -f "./03_base_install.sh" ]; then                                          
+    echo "arch-chroot"                                                          
+    cp $SCRIPT_PATH/$0 /mnt/                                                    
+    arch-chroot /mnt ./$0                                                       
+    exit                                                                        
 fi
 
 echo "#### Arch linux install: script 6, package install ####"
@@ -101,13 +100,13 @@ fi
 read -p "Install vim ? [Y/n]: " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
-    pacman -Syu $VIM_P
+    pacman -Syu $VIM_P 
 fi
 
 read -p "Install zsh ? [Y/n]: " ANSWER
 
 if [[ $ANSWER =~ ^[Yy]$ ]]; then
-    pacman -Syu $ZSH_P
+    pacman -Syu $ZSH_P 
 fi
 
 echo "#### script 06 terminated ####"

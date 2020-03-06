@@ -1,14 +1,12 @@
-#!/bin/bash -
-#title          :00_install.sh
-#author         :Lucien Martin Gaffé
-#date           :29/07/2019
-#version        :0.1.0
-#usage          :
-#notes          :
-#bash_version   :4.0+
+#!/bin/bash -                                                                   
+#title          :00_install.sh                                            
+#author         :Lucien Martin Gaffé                                            
+#date           :29/07/2019                                                     
+#version        :0.1.0                                                          
+#usage          :                                                               
+#notes          :                                                               
+#bash_version   :4.0+                                                           
 #===========================================================================
-
-set -e
 
 read -p "Proceed to install ? [Y/n] " M_INSTALL_ANSWER
 
@@ -36,4 +34,4 @@ if [[ $M_INSTALL_ANSWER =~ ^[Yy]$ ]]; then
         echo "Remove the installation media."
         reboot
     fi
-fi
+fi 

@@ -1,13 +1,12 @@
-#!/bin/bash -
-#title          :05_config_install.sh
-#author         :Lucien Martin Gaffé
-#date           :29/07/2019
-#version        :0.1.0
-#usage          :
-#notes          :
-#bash_version   :4.0+
-#===========================================================================
-set -e
+#!/bin/bash -                                                                   
+#title          :05_config_install.sh                                             
+#author         :Lucien Martin Gaffé                                            
+#date           :29/07/2019                                                     
+#version        :0.1.0                                                          
+#usage          :                                                               
+#notes          :                                                               
+#bash_version   :4.0+                                                           
+#=========================================================================== 
 
 SCRIPT_PATH=$(pwd)
 
@@ -32,7 +31,7 @@ read -p "Choose a region: " REGION
 ls /usr/share/zoneinfo/$REGION/
 read -p "Choose a city: " CITY
 
-# The time zone is linked in /etc/localtime
+# The time zone is linked in /etc/localtime 
 echo "Generate time zone config ..."
 
 ln -sf /usr/share/zoneinfo/$REGION/$CITY /etc/localtime
