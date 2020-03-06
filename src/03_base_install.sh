@@ -7,6 +7,7 @@
 #notes          :
 #bash_version   :4.0+
 #===========================================================================
+set -e
 
 # Minimal Installation
 # Install arch base

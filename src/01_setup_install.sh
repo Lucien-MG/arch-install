@@ -8,6 +8,8 @@
 #bash_version   :4.0+
 #===========================================================================
 
+set -e
+
 echo "#### Archlinux install: script 1, setup ####"
 
 # Load keyboard
@@ -55,7 +57,7 @@ else
     fi
 fi
 
-# Update the system clock 
+# Update the system clock
 timedatectl set-ntp true
 
 # Check the system clock
